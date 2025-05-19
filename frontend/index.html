@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Compiler</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Monaco Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> Mini Compiler</h1>
+            <p>A modern web-based compiler for C language</p>
+        </header>
+        
+        <main>
+            <div class="editor-container">
+                <div id="editor"></div>
+                <div class="input-container">
+                    <h3><i class="fas fa-terminal"></i> Program Input</h3>
+                    <p class="input-instructions">
+                        <i class="fas fa-info-circle"></i>
+                        Enter your input here (e.g., for scanf, type the number and press Enter)
+                    </p>
+                    <textarea id="program-input" placeholder="Type your input here..."></textarea>
+                </div>
+                <div class="button-container">
+                    <button id="compile-btn">
+                        <i class="fas fa-play"></i>
+                        Compile & Run
+                    </button>
+                </div>
+            </div>
+            
+            <div class="output-container">
+                <h2><i class="fas fa-terminal"></i> Output</h2>
+                <pre id="output"></pre>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

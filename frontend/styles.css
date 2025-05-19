@@ -1,0 +1,258 @@
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --background-dark: #1a1a2e;
+    --editor-bg: #16213e;
+    --text-light: #e2e2e2;
+    --text-muted: #a0a0a0;
+    --success-color: #00b894;
+    --error-color: #d63031;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    animation: slideUp 0.8s ease-out;
+}
+
+.editor-container {
+    background: var(--editor-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.editor-container:hover {
+    transform: translateY(-5px);
+}
+
+#editor {
+    height: 500px;
+    width: 100%;
+}
+
+.input-container {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.input-container:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.input-container h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.input-instructions {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+#program-input {
+    width: 100%;
+    min-height: 60px;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+#program-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+}
+
+.button-container {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: right;
+}
+
+#compile-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#compile-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+#compile-btn:active {
+    transform: translateY(0);
+}
+
+.output-container {
+    background: var(--editor-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.output-container:hover {
+    transform: translateY(-5px);
+}
+
+.output-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#output {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    font-family: 'Fira Code', monospace;
+    white-space: pre-wrap;
+    min-height: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    #editor {
+        height: 400px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    #editor {
+        height: 300px;
+    }
+    
+    .container {
+        padding: 0.5rem;
+    }
+} 
